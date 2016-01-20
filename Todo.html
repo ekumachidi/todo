@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Simple To-Do in HTML, CSS and jQuerry</title>
+	<link rel="stylesheet" href="lib/Bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="lib/jQuery/jquery.ui.min.css" />
+        <!-- <link rel="stylesheet" href="assets/todo.css" /> -->
+	<style type="text/css">
+		.tasks {
+			width: 250px;
+			float: left;
+			margin: 0 5px;
+			background-color: #e3e3e3;
+			min-height: 240px;
+			border-radius: 10px;
+			padding-bottom: 15px;
+		}
+
+		.task-list input, .task-list textarea {
+			width: 240px;
+			margin: 1px 5px;
+		}
+
+		.task-list input {
+			height: 30px;
+		}
+
+		.todo-task {
+			border-radius: 5px;
+			background-color: #fff;
+			width: 230px;
+			margin: 5px;
+			padding: 5px;
+		}
+
+		.task-list input[type="button"] {
+			width: 100px;
+			margin: 5px;
+		}
+
+		.todo-task > .task-title {
+			font-weight: bold;
+		}
+
+		.todo-task > .task-date {
+			font-size: small;
+			font-style: italic;
+		}
+
+		.todo-task > .task-description {
+			font-size: smaller;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		#delete-div {
+			background-color: #fff;
+			border: 3px dotted #000;
+			margin: 10px;
+			height: 75px;
+			line-height: 75px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<div id="container">
+            <div id="header"> Simple To-Do List </div>
+	<div class="tasks">
+		<h2>New task</h3>
+			<form id="todo-form">
+				<input type="text" placeholder="Title" />
+				<textarea placeholder="Descrtipion"></textarea>
+				<input type="text" placeholder="Start time"/>
+				<input type="text" placeholder="End time"/>
+				<input type="button" class="btn btn-primary" value="Add Task" />
+			</form>
+			<input type="button" class="btn btn-primary" value="Clear Data" />
+
+			<div id="delete-div">Drag to Delete</div>
+		</div>
+
+		<div class="tasks" id="Pending">
+			<h2>Pending</h2>
+			<div class="todo-task">
+				<!-- <div class="task-title">Title</div>
+				<div class="task-description">Description</div>
+				<div class="task-start">Start time</div>
+				<div class="task-end">End time</div> -->
+			</div>				
+		</div>
+
+		<div class="tasks" id="InProgress">
+			<h2>In Progress</h2>		
+		</div>
+
+		<div class="tasks" id="Completed">
+			<h2>Completed</h2>
+		</div>	
+
+		<div style="clear:both;"></div>
+            <script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+            <script type="text/javascript" src="lib/Bootstrap/bootstrap.min.js"></script>
+            <script type="text/javascript" src="lib/jQuery/jquery.ui.min.js"></script>
+            <script type="text/javascript" src="assets/todo.js"></script>
+
+            <script type="text/javascript">
+                $( "#datepicker" ).datepicker();
+                $( "#datepicker" ).datepicker("option", "dateFormat", "dd/mm/yy");
+
+                $(".task-container").droppable();
+                $(".todo-task").draggable({ revert: "valid", revertDuration:200 });
+                todo.init();
+            </script>
+            </div>
+	</body>
